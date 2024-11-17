@@ -64,5 +64,5 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 >[!NOTE]
 > Untuk mengukur kekuatan menggenggam, elektroda positif dan negatif dapat ditempelkan pada permukaan kulit yang dekat dengan otot flexor carpi ulnaris. Elektroda referensi dapat ditempelkan pada tulang siku (direkomendasikan) atau punggung tangan.
 > 
-> ![[img/0_AufUm_uN5DoqKoev.jpg]]
+> [](img/0_AufUm_uN5DoqKoev.jpg)
 > (Sumber gambar: [link](https://medium.com/performance-course/the-importance-of-a-strong-grip-91a592323349))
