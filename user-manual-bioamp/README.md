@@ -19,7 +19,7 @@ Bioamplifier ini memiliki total 6 pin yang terbagi menjadi 2 kelompok:
 	- `OUT` atau Output, merupakan pin yang menghasilkan sinyal analog dari pengukuran sinyal biopotensial dengan rentang nilai 0-5 V.
 	- `GND` atau Ground, pin yang dihubungkan ke pin GND pada mikrokontroler.
 	- `VCC` atau +5V, pin yang dihubungkan ke sumber tegangan 5 V yang tersedia pada mikrokontroler atau sumber eksternal.
-	> [!warning]
+	> [!WARNING]
 	> Jika bioamplifier ini ingin digunakan pada mikrokontroler dengan level tegangan 3.3 V, sinyal analog pada pin `OUT` bioamplifier perlu diturunkan ke level tegangan 3.3 V dengan menggunakan rangkaian pembagi tegangan.
 
 Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditambah dengan komponen lain untuk mengatur parameter seperti konfigurasi pengukuran (unipolar atau bipolar), besaran *gain*, dan karakteristik filter. Untuk kepraktisan penggunaan, fitur ini untuk sementara tidak digunakan. Jika parameter-parameter tersebut ingin diubah, pengubahan nilai parameter dapat dilakukan dengan menggunakan program.
@@ -44,13 +44,13 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 	| GND | GND |
 	| OUT | A0 |
 	
-	>[!warning]
+	>[!IMPORTANT]
 	> Pastikan bahwa pin VCC dan GND tidak terbalik. Pemasangan kabel *jumper* yang terbalik pada kedua pin tersebut dapat merusak bioamplifier.
 
 3. *Upload* program ke Arduino menggunakan Arduino IDE.
 4. Nyalakan Arduino dan buka *serial plotter* di Arduino IDE.
 	
-	> [!tips]
+	> [!TIP]
 	> Untuk mengetes apakah ketiga elektroda sudah siap digunakan untuk mengukur sinyal EMG, sentuhkan ketiga kepala elektroda. Elektroda telah siap digunakan jika sinyal yang muncul pada *serial plotter* menjadi datar (atau relatif datar) ketika ketiga kepala elektroda saling bersentuhan.
 
 5. Hubungkan ketiga kabel elektroda dengan elektroda Ag/AgCl.
@@ -60,7 +60,7 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 
 7. Tempelkan ketiga elektroda ke permukaan kulit yang dekat dengan otot yang ingin diamati. Elektroda positif dan negatif perlu ditempelkan berdekatan satu sama lain pada bagian otot yang aktif ketika subjek melakukan gerakan yang ingin diukur, sedangkan elektroda referensi ditempelkan pada otot yang tidak aktif pada gerakan tersebut. 
 	
-	>[!example]
+	>[!NOTE]
 	> Untuk mengukur kekuatan menggenggam, elektroda positif dan negatif dapat ditempelkan pada permukaan kulit yang dekat dengan otot flexor carpi ulnaris. Elektroda referensi dapat ditempelkan pada tulang siku (direkomendasikan) atau punggung tangan.
 	> 
 	> ![[img/0_AufUm_uN5DoqKoev.jpg]]
