@@ -2,13 +2,13 @@
 
 ## Pendahuluan
 
-![[img/bitmap.png]]
+![bitmap](img/bitmap.png)
 
 BioAmp EXG Pill merupakan bioamplifier buatan Upside Down Labs dari India yang dapat digunakan untuk sinyal biopotensial seperti EEG, EKG, EMG, dan EOG. Dengan daya dan *noise* yang rendah serta ukurannya yang kecil, bioamplifier ini dapat dengan mudah diintegrasikan ke dalam berbagai sistem melalui unit mikrokontroler 5 V (contoh: Arduino Uno) yang dilengkapi dengan *analog-to-digital converter* (ADC). Karena bioamplifier ini bersifat *open-source*, publik dapat dengan bebas mengakses informasi seperti skematik rangkaian dan contoh kode program dari perangkat ini melalui [GitHub](https://github.com/upsidedownlabs/BioAmp-EXG-Pill) dan [*website*](https://docs.upsidedownlabs.tech/hardware/bioamp/bioamp-exg-pill/index.html) mereka.
 
 ## Konfigurasi
 
-![[img/v1.0_Back_Specifications.jpg]]
+![v1.0_Back_Specifications](img/v1.0_Back_Specifications.jpg)
 
 Bioamplifier ini memiliki total 6 pin yang terbagi menjadi 2 kelompok:
 - Kelompok pin pertama (kiri pada gambar) terdiri dari 3 pin pada konektor JST yang terhubung ke kancing elektroda.
@@ -27,7 +27,7 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 
 ## Prosedur Penggunaan dengan Arduino
 
-![[img/Basic-Circuit.jpg]]
+![Basic-Circuit](img/Basic-Circuit.jpg)
 
 1. Sambungkan bioamplifier dengan kabel elektroda melalui konektor JST yang tersedia.
 
@@ -57,12 +57,13 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 5. Hubungkan ketiga kabel elektroda dengan elektroda Ag/AgCl.
 6. Bersihkan permukaan kulit yang akan ditempeli elektroda dengan menggunakan alkohol dan biarkan hingga kering. Hal ini dilakukan untuk membersihkan kulit dari kotoran, sel kulit mati, dan keringat.
 
-![[img/EMG.jpg]]
+![EMG](img/EMG.jpg)
 
 7. Tempelkan ketiga elektroda ke permukaan kulit yang dekat dengan otot yang ingin diamati. Elektroda positif dan negatif perlu ditempelkan berdekatan satu sama lain pada bagian otot yang aktif ketika subjek melakukan gerakan yang ingin diukur, sedangkan elektroda referensi ditempelkan pada otot yang tidak aktif pada gerakan tersebut. 
 
 >[!NOTE]
 > Untuk mengukur kekuatan menggenggam, elektroda positif dan negatif dapat ditempelkan pada permukaan kulit yang dekat dengan otot flexor carpi ulnaris. Elektroda referensi dapat ditempelkan pada tulang siku (direkomendasikan) atau punggung tangan.
 > 
-> ![](img/0_AufUm_uN5DoqKoev.jpg)
+> ![0_AufUm_uN5DoqKoev](img/0_AufUm_uN5DoqKoev.jpg)
+> 
 > (Sumber gambar: [link](https://medium.com/performance-course/the-importance-of-a-strong-grip-91a592323349))
