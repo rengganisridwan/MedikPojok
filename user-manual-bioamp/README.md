@@ -33,9 +33,9 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 
 	| BioAmp EXG Pill | Elektroda |
 	| --- | --- |
-	| REF | Reference (kuning) |
-	| IN+ | Positive (merah) |
-	| IN- | Negative (hitam) |
+	| REF | Referensi (kuning) |
+	| IN+ | Positif (merah) |
+	| IN- | Negatif (hitam) |
 
 2. Sambungkan bioamplifier dengan papan Arduino menggunakan kabel *jumper*.
 
@@ -45,8 +45,8 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 	| GND | GND |
 	| OUT | A0 |
 
->[!IMPORTANT]
-> Pastikan bahwa pin VCC dan GND tidak terbalik. Pemasangan kabel *jumper* yang terbalik pada kedua pin tersebut dapat merusak bioamplifier.
+>[!WARNING]
+> Pastikan pemasangan pin VCC dan GND tidak tertukar. Pemasangan kabel *jumper* yang tertukar pada kedua pin tersebut dapat merusak bioamplifier.
 
 3. *Upload* program ke Arduino menggunakan Arduino IDE.
 4. Nyalakan Arduino dan buka *serial plotter* di Arduino IDE.
@@ -67,3 +67,33 @@ Terdapat juga beberapa *pad* pada bioamplifier yang dapat di-*short* atau ditamb
 > ![0_AufUm_uN5DoqKoev](img/0_AufUm_uN5DoqKoev.jpg)
 > 
 > (Sumber gambar: [link](https://medium.com/performance-course/the-importance-of-a-strong-grip-91a592323349))
+
+## FAQ dan Troubleshooting
+
+### Serial plotter Arduino IDE ter-update terlalu cepat
+
+Permasalahan ini umum dikeluhkan pada Arduino IDE versi 2.x karena serial plotter pada versi ini hanya menampilkan 50 data dalam satu frame. Solusi ringkas dari permasalahan ini adalah dengan memakai Arduino IDE versi 1.x karena *serial plotter* pada versi ini dapat menampilkan 500 data dalam satu *frame*.
+
+Jika ingin tetap menggunakan Arduino IDE versi 2.x, solusi yang bisa dilakukan adalah dengan mengganti nilai yang ada pada *source code* dari *serial plotter* Arduino IDE. *Source code* tersebut dapat diakses pada *file* `main.35ae02cb.chunk.js` yang terdapat di dalam folder instalasi Arduino IDE `\Arduino IDE\resources\app\lib\backend\resources\arduino-serial-plotter-webapp\static\js`. 
+
+Di dalam *file* `main.35ae02cb.chunk.js`, cari kata kunci berikut: `U=Object(o.useState)(50)`. Angka `50` pada kata kunci tersebut merepresentasikan jumlah data yang ditampilkan dalam satu *frame* *serial plotter*. Ganti nilai `50` dengan jumlah data yang diinginkan, misal `5000`. Setelah diubah, simpan perubahannya dan tutup *file* tersebut. 
+
+### Sinyal yang muncul pada serial plotter tidak sesuai dengan gerakan yang dilakukan
+
+Kejadian ini dapat disebabkan oleh beberapa faktor, di antaranya adalah posisi elektroda yang tidak sesuai atau *noise* yang terlalu besar sehingga menutupi sinyal yang terukur. Berikut adalah beberapa hal yang dapat dilakukan sebagai solusi.
+
+- Pastikan bahwa jumper/kabel yang terhubung pada bioamplifier telah terpasang dengan baik. Kabel yang kendur dapat memunculkan *noise* dan/atau mengganggu proses pengiriman data. 
+- Pastikan otot yang berada dekat dengan elektroda merupakan otot yang aktif pada gerakan tersebut. Selain itu, pastikan juga bahwa elektroda referensi berada pada bagian tulang atau otot yang tidak aktif ketika gerakan tadi dilakukan. 
+- Pastikan bahwa semua elektroda telah menempel dengan erat pada permukaan kulit. Elektroda yang tidak melekat dengan baik pada permukaan kulit dapat memunculkan *noise* yang relatif besar karena adanya rongga udara di antara elektroda dan pemukaan kulit.
+- Jauhkan kabel dari perangkat elektronik dengan daya besar atau daerah dengan interferensi elektromagnetik tinggi. Medan magnet dari kabel di sekitar elektroda dapat menyusup masuk ke dalam sinyal yang terukur oleh bioamplifier.
+- Jika mikrokontroler terhubung ke laptop yang sedang melakukan pengisian daya, lepas kabel pengisian daya laptop selama pengukuran. Laptop yang terhubung ke jala-jala listrik akan memberikan *noise* 50 Hz yang relatif tinggi ke sinyal yang terukur.
+- Kabel yang berayun dapat memunculkan sinyal *spike* pada sinyal hasil pengukuran. Hal ini bisa dihindari dengan dengan merekatkan kabel ke benda lain yang relatif statis (misal meja). Pastikan juga kabel tidak banyak terayun selama subjek melakukan gerakan.
+- Gunakan filter *notch* digital/analog yang dapat menghilangkan *noise*. *Noise* yang muncul umumnya berada pada frekuensi 50 Hz. Untuk memastikan karakteristik dari *noise*, lakukan pengukuran singkat dan olah data hasil pengukuran tersebut dengan algoritma *fast fourier transform* (FFT) untuk mendapatkan informasi sinyal pada domain frekuensi.
+
+### Elektroda mudah lepas ketika melakukan pengukuran gerakan
+
+Elektroda yang mudah lepas dapat disebabkan oleh fungsi perekat yang kurang kuat. Di samping itu, sifat perekat elektroda konvensional yang cenderung kaku juga dapat menyebabkan delaminasi pada elektroda untuk gerakan-gerakan tertentu, terlebih ketika elektroda diletakkan pada permukaan kulit yang mengalami proses kontraksi dan peregangan selama subjek melakukan gerakan.
+
+Solusi dari permasalahan ini adalah dengan menggunakan perekat tambahan seperti plester luka atau *micropore* untuk membantu merekatkan elektroda pada permukaan kulit karena kedua plester tersebut memiliki sifat yang cukup elastis.
+
+### 
