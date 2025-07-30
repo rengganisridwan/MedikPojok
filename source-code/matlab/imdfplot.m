@@ -8,11 +8,9 @@ clear; close all;
 % was filtered using proprietary digital filter from UDLabs' Github
 data = readtable("subjek1.txt");
 
-%% Signal parameter
-
 Fs = 500; % Sampling frequency 
-raw = data.Var1(10*Fs:53000);
-L = length(raw);
+raw = data.Var1(10*Fs:53000); % Truncate several seconds from both ends of the data to remove unwanted signal
+L = length(raw); % Signal length
 t = (0:L-1) / Fs; % Create a time vector based on the sampling frequency
 
 %% Perform a bandpass filter using Butterworth IIR filter 10th order at 20-230 Hz
