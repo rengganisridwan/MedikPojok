@@ -4,14 +4,14 @@
 
 clear; close all;
 
-% Load the data. The first column is the raw signal, while the second one \
+% Load the data. The first column is the raw signal, while the second one
 % was filtered using proprietary digital filter from UDLabs' Github
-wsig = readtable("subjek1.txt");
+data = readtable("subjek1.txt");
 
 %% Signal parameter
 
 Fs = 500; % Sampling frequency 
-raw = wsig.Var1(10*Fs:53000);
+raw = data.Var1(10*Fs:53000);
 L = length(raw);
 t = (0:L-1) / Fs; % Create a time vector based on the sampling frequency
 
@@ -56,8 +56,8 @@ while true
     xline(xstart/Fs)
     xline(xend/Fs)
     hold off
-    pause(1/60) % Set animation speed to 60 fps (affected by computation power)
 
+    pause(1/60) % Set animation speed to 60 fps (affected by computation power)
     k = k+1;
 end
 
@@ -70,5 +70,6 @@ SStotal = (length(mdf)-1) * var(mdf);
 rsq = 1 - SSresid/SStotal % Calculate R-squared
 
 subplot(2,1,1); hold on; plot(yfit) % Plot the regression result
-text(1,min(mdf),sprintf('Regression model: $y=%.03f x + %.03f $', ...
-    p(1),p(2)),'Interpreter', 'latex') % Display the regression model
+text(1,min(mdf), ...
+    sprintf('Regression model: $y=%.03f x + %.03f $',p(1),p(2)), ...
+    'Interpreter', 'latex') % Display the regression model
